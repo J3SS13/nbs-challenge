@@ -10,16 +10,17 @@ class Chart extends React.Component {
   }
 
   componentDidMount() {
-    this.draw()
+    this.draw(this.props.mean)
+    console.log(this.props.mean)
   }
   componentDidUpdate() {
-    this.draw()
+    this.draw(this.props.mean)
   }
 
-  draw() {
+  draw(data) {
     const w = 960;
 		const h = 500;
-		const data = [ 5, 10, 13, 19, 21, 25];
+		// const data = [ 5, 10, 13, 19, 21, 25];
 
 			const xScale = d3.scaleBand()
 							.domain(d3.range(data.length))
@@ -55,6 +56,36 @@ class Chart extends React.Component {
 					return "rgb(0, 0, " + Math.round(d * 10) + ")";
 			   })
 
+         //Create labels
+     svg.selectAll("text")
+        .data(data)
+        .enter()
+        .append("text")
+        .text(function(d) {
+           return d;
+        })
+        .attr("text-anchor", "middle")
+        .attr("x", function(d, i) {
+           return xScale(i) + xScale.bandwidth() / 2;
+        })
+       .attr("y", function(d) {
+                   if(yScale(d)<=15) {
+                       return h - yScale(d) - 2;
+                   }else{
+                       return h - yScale(d) + 14;
+                   }
+               })
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "11px")
+        .attr("fill", function (d) {
+          if(yScale(d)<=15){
+              return "black"
+          }else{
+              return "white";
+          }
+              });
+
+
          //On click, update with new data
           d3.select("#search-bar")
               .on("click", function() {
@@ -80,6 +111,39 @@ class Chart extends React.Component {
                           return "rgb(0,0," + Math.round(d * 10) + ")";
                       });
                     });
+
+
+                    //Update labels
+                svg.selectAll("text")
+                    .data(data) //add props
+                    .transition()								// <-- Now with
+                    .delay(function(d, i) {
+                        return i * 100;
+                    })
+                    .duration(1000)
+      						  .ease(d3.easeCubic)
+      							.text(function(d) {
+                        return d;
+                    })
+                    .attr("x", function(d, i) {
+                        return xScale(i) + xScale.bandwidth() / 2;
+                    })
+                    .attr("y", function(d) {
+                        if(yScale(d)<=15) {
+                            return h - yScale(d) - 2;  //h = impressions
+                        }else{
+                            return h - yScale(d) + 14;
+      		}
+                    })
+                    .attr("fill", function (d) {
+                        if(yScale(d)<=15){
+                            return "black"
+                        }else{
+                            return "white";
+                        }
+                    });
+
+
 
 
  }

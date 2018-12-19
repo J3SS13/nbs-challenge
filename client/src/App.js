@@ -11,6 +11,9 @@ class App extends Component {
    super(props);
    this.state = {
     artistData: [],
+    benchmarkData: [],
+    social: [],
+    benchmark_mean:[],
     artistName: '',
     artist: 'warpaint'
    }
@@ -20,8 +23,41 @@ class App extends Component {
 
 async fetchArtistData(artist){
   const resp = await axios(`${BASE_URL}?query=${artist}&limit=1&access_token=${process.env.REACT_APP_API_KEY}`)
+  const benchmarks = Object.values(resp.data.artists[0].stage.benchmarks)
+
+  // console.log(benchmarks[1].mean)
+  //
+  // // const values = benchmarks.map(b => Object.values(benchmarks[b]))
+  // //
+  //
+  //
+  const social =  Object.keys(benchmarks).map((key, index) => {
+  return benchmarks[key].metric.full_name;
+  })
+  //
+
+  // const mean_benchmark = Object.values(benchmarks).map((key, index) => {
+  //  return benchmarks[key].mean;
+  //  })
+
+  const benchmark_mean =[]
+  for (let i = 0; i < benchmarks.length; i++) {
+    benchmark_mean.push(benchmarks[i].mean)
+  }
+
+
+  //
+
+  //  console.log(mean_benchmark);
+
+// const mean = benchmarks.map(obj => obj.mean )
+// console.log(mean);
+
   this.setState({
     artistData:resp.data.artists[0],
+    benchmarkData: benchmarks,
+    social,
+    benchmark_mean
   });
 }
 
@@ -36,11 +72,10 @@ handleChange(e){
   });
 }
 
-// getBenchmarks(){
-//   const keys = [11, 28, 44, 410, 412] // This will need to be scalable, get keys from object, with corresponding name instead
-//   const benchmarks = keys.map(n => this.state.artistData.stage.benchmarks[n]);
-//   console.log(benchmarks)
-//  }
+getBenchmarkName(){
+const names =  this.state.benchmarkData.map(i => i.metric.full_name );
+  console.log(names)
+ }
 
 
 async handleSubmit(e){
@@ -59,7 +94,7 @@ async handleSubmit(e){
         ?
         <div>
         <Results artistName={this.state.artistData.name}  />
-        <Chart  stage="[11, 28, 44, 410, 412]"/>
+        <Chart  mean={this.state.benchmark_mean}/>
         </div>
         :
         <h1> No Search Results </h1>
