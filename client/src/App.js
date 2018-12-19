@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SearchBar from './components/SearchBar';
 import Results from './components/Results';
+import Chart from './components/Chart';
 
 const BASE_URL = 'https://api.nextbigsound.com/search/v1/artists/';
 
@@ -10,7 +11,6 @@ class App extends Component {
    super(props);
    this.state = {
     artistData: [],
-    benchmarkData: [],
     artistName: '',
     artist: 'warpaint'
    }
@@ -20,12 +20,9 @@ class App extends Component {
 
 async fetchArtistData(artist){
   const resp = await axios(`${BASE_URL}?query=${artist}&limit=1&access_token=${process.env.REACT_APP_API_KEY}`)
-  console.log(resp.data.artists);
   this.setState({
-    artistData:resp.data.artists,
-    benchmarkData: resp.data.artists[0].stage.benchmarks,
-    artistName: resp.data.artists[0].name,
-  })
+    artistData:resp.data.artists[0],
+  });
 }
 
 async componentDidMount(){
@@ -39,6 +36,12 @@ handleChange(e){
   });
 }
 
+// getBenchmarks(){
+//   const keys = [11, 28, 44, 410, 412] // This will need to be scalable, get keys from object, with corresponding name instead
+//   const benchmarks = keys.map(n => this.state.artistData.stage.benchmarks[n]);
+//   console.log(benchmarks)
+//  }
+
 
 async handleSubmit(e){
   e.preventDefault();
@@ -46,11 +49,15 @@ async handleSubmit(e){
   console.log(resp)
 }
 
+// write ternary in teh return based on state to show "no results" when user enters name that cannot be found
   render() {
     return (
       <div className="App">
       <SearchBar handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
-      <Results artistName={this.state.artistName}  />
+
+
+      <Results artistName={this.state.artistData.name}  />
+      <Chart  stage="[12,34,52, 25, 23]"/>
       </div>
     );
   }
