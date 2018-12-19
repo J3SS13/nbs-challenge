@@ -13,7 +13,7 @@ export default function SearchBar(props){
           onChange={props.handleChange}
         />
 
-      <button type='submit' value='submit'> Search </button>
+      <button className='search-bar' type='submit' value='submit'> Search </button>
 
       </form>
     </div>

@@ -23,7 +23,7 @@ class Chart extends React.Component {
 
 			const xScale = d3.scaleBand()
 							.domain(d3.range(data.length))
-							.rangeRound([0, w])
+							.range([0, w])
 							.padding(0.08);
 
 			const yScale = d3.scaleLinear()
@@ -53,21 +53,12 @@ class Chart extends React.Component {
 			   })
 			   .attr("fill", function(d) {
 					return "rgb(0, 0, " + Math.round(d * 10) + ")";
-			   });
+			   })
 
          //On click, update with new data
-          d3.select("button")
+          d3.select("#search-bar")
               .on("click", function() {
-
-                  //New values for data
-                  const numValues = data.length;						//pass in props
-                  data = [];  						 				//Initialize empty array
-                  const maxValue = 100;
-                  for (const i = 0; i < numValues; i++) {				//Loop numValues times
-                      const newNumber = Math.floor(Math.random() * maxValue); //New random integer (0-24)
-                      data.push(newNumber);			 			//Add new number to array
-                  }
-
+				//pass in props
                   yScale.domain([0, d3.max(data)]);
 
                   //Update all rects
@@ -91,21 +82,6 @@ class Chart extends React.Component {
                     });
 
 
-   // const svg = d3.select("body")
-   // .append("svg")
-   // .attr("width", w)
-   // .attr("height", h)
-   // .style("margin-left", 100);
-   //
-   // svg.selectAll("rect")
-   //   .data(data)
-   //   .enter()
-   //   .append("rect")
-   //   .attr("x", (d, i) => i * 70)
-   //   .attr("y", (d, i) => h - 10 * d)
-   //   .attr("width", 65)
-   //   .attr("height", (d, i) => d * 10)
-   //   .attr("fill", "green")
  }
 
   render() {

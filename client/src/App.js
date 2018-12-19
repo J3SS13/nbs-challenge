@@ -55,9 +55,19 @@ async handleSubmit(e){
       <div className="App">
       <SearchBar handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
 
+      { this.state.artistData
+        ?
+        <div>
+        <Results artistName={this.state.artistData.name}  />
+        <Chart  stage="[11, 28, 44, 410, 412]"/>
+        </div>
+        :
+        <h1> No Search Results </h1>
 
-      <Results artistName={this.state.artistData.name}  />
-      <Chart  stage="[12,34,52, 25, 23]"/>
+      }
+
+
+
       </div>
     );
   }
