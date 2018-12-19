@@ -11,7 +11,6 @@ class Chart extends React.Component {
 
   componentDidMount() {
     this.draw(this.props.mean)
-    console.log(this.props.mean)
   }
   componentDidUpdate() {
     this.draw(this.props.mean)
@@ -20,7 +19,6 @@ class Chart extends React.Component {
   draw(data) {
     const w = 960;
 		const h = 500;
-		// const data = [ 5, 10, 13, 19, 21, 25];
 
 			const xScale = d3.scaleBand()
 							.domain(d3.range(data.length))
