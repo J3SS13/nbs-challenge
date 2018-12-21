@@ -21,7 +21,8 @@ class Chart extends React.Component {
     const {
       height,
       width,
-      benchmarkMean
+      benchmarkMean,
+      social
       } = props
 
 			const xScale = d3.scaleBand()
@@ -48,7 +49,11 @@ class Chart extends React.Component {
         // height
         //
       :
-        bars.transition(),
+        bars.transition().delay(function(d, i) {
+            return i * 100;
+        })
+        .duration(1500)
+        .ease(d3.easeCubic),
         xScale,
         yScale,
         height
@@ -62,13 +67,22 @@ class Chart extends React.Component {
       ?
         labels.enter().append("text")
       :
-        labels.transition(),
+        labels.transition().delay(function(d, i) {
+            return i * 100;
+        })
+        .duration(1500)
+        .ease(d3.easeCubic),
         xScale,
         yScale,
         height
+
     );
   }
 
+
+
+
+  //Style bars
   styleBars(bars, xScale, yScale, height) {
     bars.attr("x", function(d, i) {
       	return xScale(i);
@@ -86,6 +100,7 @@ class Chart extends React.Component {
 
   }
 
+  //Style Labels
   styleLabels(labels, xScale, yScale, height){
     labels.text(function(d){
       return d;

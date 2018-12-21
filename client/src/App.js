@@ -74,7 +74,7 @@ async handleSubmit(e){
 
         { this.state.artistData
           ?
-          <Results artistName={this.state.artistData.name} benchmarkMean={this.state.benchmarkMean}/>
+          <Results artistName={this.state.artistData.name} benchmarkMean={this.state.benchmarkMean} social={this.state.social}/>
           :
           <div className="no-results">
           <h1>No search results for "{this.state.artist}."</h1>

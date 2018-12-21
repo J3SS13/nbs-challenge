@@ -8,7 +8,7 @@ export default function Results(props){
 return(
   <div className="results">
     <h1> {props.artistName} </h1>
-    <Chart height="500" width="960" benchmarkMean={props.benchmarkMean}/>
+    <Chart height="500" width="960" benchmarkMean={props.benchmarkMean} social={props.social}/>
   </div>
 )
 }
