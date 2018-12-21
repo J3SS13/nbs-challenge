@@ -1,14 +1,18 @@
 import React from 'react';
 import SearchBar from './SearchBar';
-require('../resources/nbs-icon.jpg');
+import './Header.css';
 
 
 export default function Header(props){
-  return(  <nav>
+  return(
+
+    <div id="header">
       <div id="nbs-icon"> </div>
-      <h1 id="nbs-title"> Next Big Sound </h1>
-      <SearchBar handleChange={props.handleChange} handleSubmit={props.handleSubmit}/>
-      <h2 id="page-title"> Now playing {props.artist}... </h2>
-    </nav>
+      <nav>
+        <SearchBar handleChange={props.handleChange} handleSubmit={props.handleSubmit}/>
+        <h2 id="page-title"> Social Media </h2>
+        <h3> {props.artistName} </h3>
+      </nav>
+    </div>
     )
 }

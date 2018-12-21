@@ -1,0 +1,37 @@
+nav {
+  flex:none;
+  padding: 12px 40px;
+}
+
+h2 {
+  margin-top: 100px;
+  padding-left: 10px;
+  font-size: 30px;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-color: black;
+  border-bottom: solid;
+  border-width: 5px;
+}
+
+
+h3{
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 30px;
+  padding-left: 10px;
+  ;
+}
+
+#nbs-icon{
+  flex:none;
+  width: 80px;
+  height: 80px;
+  background-image: url(./nbs-icon.jpg);
+  background-size: contain;
+}
+
+#header{
+  display: flex;
+  margin: 80px 0 0 80px;
+}

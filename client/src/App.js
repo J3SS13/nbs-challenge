@@ -70,7 +70,7 @@ async handleSubmit(e){
     return (
       <div className="App">
 
-        <Header handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+        <Header artistName={this.state.artistData.name} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
 
         { this.state.artistData
           ?
@@ -82,6 +82,7 @@ async handleSubmit(e){
           </div>
         }
 
+        <footer> </footer>
       </div>
     );
   }

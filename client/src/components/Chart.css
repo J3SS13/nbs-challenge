@@ -1,5 +1,5 @@
 /*ChartKeys.js  */
-.chart-key-container{
+.chart-key-container {
   display: flex;
   justify-content: space-between;
   width: 960px;
@@ -13,21 +13,30 @@
   width: 140px;
   color: grey;
   font-family: 'Open Sans Condensed', sans-serif;
-
 }
 
 /*Results.js */
-.results-container{
-  display:
+.results-container {
+  margin-bottom: 50px;
 }
 
-.results{
+.results {
   width: 960px;
   margin: 0 auto;
   padding: 20px;
 
 }
 
-#artist-name{
+#artist-name {
   font-size: 50px;
+}
+
+#foot-note {
+  margin: 0 auto;
+  font-size: 14px;
+  text-align: center;
+  padding:20px;
+  width: 300px;
+  color: grey;
+  font-family: 'Open Sans Condensed', sans-serif;
 }

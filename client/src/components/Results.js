@@ -8,10 +8,11 @@ export default function Results(props){
 return(
   <div className="results-container">
     <div className="results">
-      <h1 id="artist-name"> {props.artistName} </h1>
       <Chart height="500" width="960" benchmarkMean={props.benchmarkMean} />
 
       <ChartKeys social={props.social}/>
+
+      <p id="foot-note"> Numbers represent mean of six months of data collections. </p>
 
     </div>
   </div>
