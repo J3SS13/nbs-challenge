@@ -2,7 +2,7 @@
 ### Built for visualizing artist data from Next Big Sound
 
 This web app is designed to work alone or as a component within a larger app.
-It features a search bar, where a user can input an artist name, and get a bar chart, displaying their mean data for social media imprints.
+It features a search bar, where a user can input an artist name, rendering a bar chart visualization of social media imprints.
 
 I used several resources in building this application:
 + https://bl.ocks.org/alokkshukla/5306fdf5684f85d5b768d2bc02013b09
