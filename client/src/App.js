@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import SearchBar from './components/SearchBar';
+import Header from './components/Header';
 import Results from './components/Results';
 
 
@@ -70,7 +70,7 @@ async handleSubmit(e){
     return (
       <div className="App">
 
-        <SearchBar handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+        <Header handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
 
         { this.state.artistData
           ?

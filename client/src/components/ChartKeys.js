@@ -2,8 +2,6 @@ import React from 'react';
 import './Chart.css'
 
 export default function ChartKeys(props){
-// props.social
-
   return(
     <div className="chart-key-container">
     {

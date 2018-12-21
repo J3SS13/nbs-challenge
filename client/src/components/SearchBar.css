@@ -1,0 +1,45 @@
+
+input {
+  padding: 0 1em 0 1em;
+  height: 50px;
+  width: 430px;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+  border-color: #ddd;
+  border-width: 2px;
+  border-style: solid;
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input:focus {
+    outline:none;
+    background-color: none;
+}
+
+input:hover{
+  border-color: black;
+}
+
+button {
+  background: #ddd;
+  padding: 0 1em 0 1em;
+  height: 53.8px;
+  width: 130px;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  margin:0;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+
+}
+
+.search{
+  width: 602.38px;
+
+}
