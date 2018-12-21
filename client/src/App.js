@@ -13,7 +13,7 @@ class App extends Component {
     artistData: [],
     benchmarkData: [],
     social: [],
-    benchmark_mean:[],
+    benchmarkMean:[],
     artist: 'warpaint'
    }
    this.handleChange = this.handleChange.bind(this);
@@ -27,15 +27,15 @@ async fetchArtistData(artist){
     const social =  Object.keys(benchmarks).map((key, index) => {
       return benchmarks[key].metric.full_name;
       })
-    const benchmark_mean =[]
+    const benchmarkMean =[]
       for (let i = 0; i < benchmarks.length; i++) {
-        benchmark_mean.push(benchmarks[i].mean)
+        benchmarkMean.push(benchmarks[i].mean)
       }
     this.setState({
       artistData:resp.data.artists[0],
       benchmarkData: benchmarks,
       social,
-      benchmark_mean
+      benchmarkMean
     });
   }catch(e) {
     console.log(e);
@@ -43,7 +43,7 @@ async fetchArtistData(artist){
       artistData: null,
       benchmarkData: null,
       social: null,
-      benchmark_mean: null
+      benchmarkMean: null
   })
 }
 }
@@ -63,7 +63,6 @@ handleChange(e){
 async handleSubmit(e){
   e.preventDefault();
   const resp = await this.fetchArtistData(this.state.artist);
-  console.log(resp)
 }
 
 
@@ -75,11 +74,11 @@ async handleSubmit(e){
 
         { this.state.artistData
           ?
-          <Results artistName={this.state.artistData.name} mean={this.state.benchmark_mean}  />
+          <Results artistName={this.state.artistData.name} benchmarkMean={this.state.benchmarkMean}/>
           :
           <div className="no-results">
           <h1>No search results for "{this.state.artist}."</h1>
-          <p>Please broaden your search by excluding spaces and special characters.</p>
+          <p>If your search terms have special characters, you must type the special character or end your search term before the character, i.e. "Beyoncé"  or "Beyonc" </p>
           </div>
         }
 
