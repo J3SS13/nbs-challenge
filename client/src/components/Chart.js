@@ -79,9 +79,6 @@ class Chart extends React.Component {
     );
   }
 
-
-
-
   //Style bars
   styleBars(bars, xScale, yScale, height) {
     bars.attr("x", function(d, i) {
@@ -94,10 +91,9 @@ class Chart extends React.Component {
     .attr("height", function(d) {
        return yScale(d);
     })
-    .attr("fill", function(d) {
-     return "rgb(0, 0, " + Math.round(d * 10) + ")";
+    .attr("fill", function(d, i) {
+     return "rgb(40, 220, " + Math.round(d * 20) + ")";
     })
-
   }
 
   //Style Labels
@@ -126,73 +122,6 @@ class Chart extends React.Component {
       }
     });
 }
-
-
-
-
-
-
- //         //On click, update with new data
- //          d3.select("#search-bar")
- //              .on("click", function() {
-	// 			//pass in props
- //                  yScale.domain([0, d3.max(data)]);
- //
- //                  //Update all rects
- //                  svg.selectAll("rect")
- //                      .data(data)
- //          .transition()
- //                      .delay(function(d, i) {
- //                          return i * 100;
- //                      })
- //          .duration(1700)
- //          .ease(d3.easeCubic)
- //                      .attr("y", function(d) {
- //                          return height - yScale(d);
- //                      })
- //                      .attr("height", function(d) {
- //                          return yScale(d);
- //                      })
- //                      .attr("fill", function(d) {
- //                          return "rgb(0,0," + Math.round(d * 10) + ")";
- //                      });
- //                    });
- //
- //
- //                    //Update labels
- //                svg.selectAll("text")
- //                    .data(data) //add props
- //                    .transition()								// <-- Now with
- //                    .delay(function(d, i) {
- //                        return i * 100;
- //                    })
- //                    .duration(1000)
- //      						  .ease(d3.easeCubic)
- //      							.text(function(d) {
- //                        return d;
- //                    })
- //                    .attr("x", function(d, i) {
- //                        return xScale(i) + xScale.bandwidth() / 2;
- //                    })
- //                    .attr("y", function(d) {
- //                        if(yScale(d)<=15) {
- //                            return height - yScale(d) - 2;  //h = impressions
- //                        }else{
- //                            return height - yScale(d) + 14;
- //      		}
- //                    })
- //                    .attr("fill", function (d) {
- //                        if(yScale(d)<=15){
- //                            return "black"
- //                        }else{
- //                            return "white";
- //                        }
- //                    });
- //
- //
- //
- //
- // }
 
   render() {
     return  <svg

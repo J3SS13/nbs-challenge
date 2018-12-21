@@ -1,14 +1,16 @@
 
 import React from 'react';
 import Chart from './Chart';
-
+import ChartKeys from './ChartKeys'
 
 export default function Results(props){
 
 return(
   <div className="results">
     <h1> {props.artistName} </h1>
-    <Chart height="500" width="960" benchmarkMean={props.benchmarkMean} social={props.social}/>
+    <Chart height="500" width="960" benchmarkMean={props.benchmarkMean} />
+
+    <ChartKeys social={props.social}/>
   </div>
 )
 }
