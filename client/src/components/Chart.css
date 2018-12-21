@@ -1,0 +1,22 @@
+/*ChartKeys.js  */
+.chart-key-container{
+  display: flex;
+  justify-content: space-between;
+  width: 960px;
+}
+
+.chart-key {
+flex-shrink: 1;
+font-size: 20px;
+text-align: center;
+padding: 0 10px;
+width: 160px;
+
+}
+
+
+
+/*Results.js */
+.results{
+margin: 0 auto;
+}

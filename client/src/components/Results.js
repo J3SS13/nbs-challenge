@@ -2,7 +2,7 @@
 import React from 'react';
 import Chart from './Chart';
 import ChartKeys from './ChartKeys'
-
+import './Chart.css'
 export default function Results(props){
 
 return(
