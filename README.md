@@ -4,7 +4,13 @@
 This data visualization is designed to work alone or as a component within a larger app.
 
 ### User Story
-It features a search bar, where a user can input an artist name, rendering a bar chart visualization of social media imprints. When a new artist is displayed, the bar graph will have an animated transition between graph views. If the user searches something that is not found, the app will show a message, asking them to adjust their search terms.
+This app features a search bar, where a user can input an artist name, rendering a bar chart visualization of social media imprints. When a new artist is displayed, the bar graph will have an animated transition between graph views. The graph colors change, dependent on the data value. If the user searches something that is not found, the app will show a message, asking them to adjust their search terms.
+
+### MVP
+
++ Search functionality with user-facing error handling
++ Fetch data from Next Big Sound API
++ Bar chart data visualization created using D3.js
 
 ### Resources
 I used several resources in building this application:
