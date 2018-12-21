@@ -1,4 +1,4 @@
-#Data Visualization using D3.js and React.js
+# Data Visualization using D3.js and React.js
 ### built for Next Big Sound
 
 This web app is designed to work alone or as a component within a larger app.
