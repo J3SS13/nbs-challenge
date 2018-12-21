@@ -10,8 +10,6 @@ export default function Header(props){
       <div id="nbs-icon"> </div>
       <nav>
         <SearchBar handleChange={props.handleChange} handleSubmit={props.handleSubmit}/>
-        <h2 id="page-title"> Social Media </h2>
-        <h3> {props.artistName} </h3>
       </nav>
     </div>
     )

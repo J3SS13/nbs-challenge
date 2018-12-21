@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Header from './components/Header';
 import Results from './components/Results';
+import NoResult from './components/NoResult';
 
 
 const BASE_URL = 'https://api.nextbigsound.com/search/v1/artists/';
@@ -62,7 +63,7 @@ handleChange(e){
 
 async handleSubmit(e){
   e.preventDefault();
-  const resp = await this.fetchArtistData(this.state.artist);
+  await this.fetchArtistData(this.state.artist);
 }
 
 
@@ -70,19 +71,14 @@ async handleSubmit(e){
     return (
       <div className="App">
 
-        <Header artistName={this.state.artistData.name} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+        <Header handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
 
         { this.state.artistData
           ?
           <Results artistName={this.state.artistData.name} benchmarkMean={this.state.benchmarkMean} social={this.state.social}/>
           :
-          <div className="no-results">
-          <h1>No search results for "{this.state.artist}."</h1>
-          <p>If your search terms have special characters, you must type the special character or end your search term before the character, i.e. "Beyoncé"  or "Beyonc" </p>
-          </div>
+          <NoResult />
         }
-
-        <footer> </footer>
       </div>
     );
   }

@@ -21,8 +21,7 @@ class Chart extends React.Component {
     const {
       height,
       width,
-      benchmarkMean,
-      social
+      benchmarkMean
       } = props
 
 			const xScale = d3.scaleBand()
@@ -44,10 +43,6 @@ class Chart extends React.Component {
       bars.empty()
       ?
         bars.enter().append("rect")
-        // bars.transition(),
-        // yScale,
-        // height
-        //
       :
         bars.transition().delay(function(d, i) {
             return i * 100;

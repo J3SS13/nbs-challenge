@@ -1,5 +1,5 @@
 import React from 'react';
-import './Chart.css'
+import './Results.css'
 
 export default function ChartKeys(props){
   return(

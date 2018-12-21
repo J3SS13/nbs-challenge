@@ -1,7 +1,7 @@
 
 input {
   padding: 0 1em 0 1em;
-  height: 50px;
+  height: 39px;
   width: 430px;
   font-size: 1.2rem;
   letter-spacing: 0.02em;
@@ -17,6 +17,11 @@ input:focus {
     background-color: #F0F0F0;
 }
 
+button:focus {
+    outline:none;
+  }
+
+
 input:hover{
   border-color: black;
 }
@@ -24,7 +29,7 @@ input:hover{
 button {
   background: #ddd;
   padding: 0 1em 0 1em;
-  height: 53.8px;
+  height: 42.5px;
   width: 130px;
   font-size: 1.3rem;
   letter-spacing: 0.02em;
@@ -41,5 +46,6 @@ button:hover {
 
 .search{
   width: 602.38px;
+  height: 42px;
 
 }

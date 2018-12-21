@@ -1,11 +1,13 @@
+/* Header.js */
 nav {
-  flex:none;
-  padding: 12px 40px;
+  flex: none;
+  margin: auto 0;
+  padding-left: 40px;
 }
 
 h2 {
-  margin-top: 100px;
-  padding-left: 10px;
+  width: 100%;
+  margin-top: 50px;
   font-size: 30px;
   font-family: 'Fira Sans', sans-serif;
   font-weight: 800;
@@ -20,11 +22,11 @@ h3{
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 30px;
   padding-left: 10px;
-  ;
+  line-height: 20px;
 }
 
 #nbs-icon{
-  flex:none;
+  flex: none;
   width: 80px;
   height: 80px;
   background-image: url(./nbs-icon.jpg);
@@ -33,5 +35,24 @@ h3{
 
 #header{
   display: flex;
-  margin: 80px 0 0 80px;
+  margin: 50px 0 0 50px;
+}
+
+#page-title {
+  margin: auto 0;
+  max-width: 800px;
+}
+
+/* NoResults.js */
+
+p {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-style: italic;
+}
+
+.no-results{
+
+  max-width: 500px;
+  margin: 40px 0 0 230px;
+
 }
